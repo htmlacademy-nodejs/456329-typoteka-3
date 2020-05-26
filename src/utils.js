@@ -11,8 +11,5 @@ module.exports.shuffle = (someArray) => {
     const randomPosition = Math.floor(Math.random() * i);
     [someArray[i], someArray[randomPosition]] = [someArray[randomPosition], someArray[i]];
   }
-
   return someArray;
 };
-
-

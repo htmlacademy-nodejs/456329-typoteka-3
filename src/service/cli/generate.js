@@ -61,8 +61,8 @@ const CATEGORIES = [
   `Железо`,
 ];
 
-const dt = new Date();
-const createdDate = `${dt.getFullYear()}-${(dt.getMonth() + 1)}-${dt.getDate()} ${dt.getHours()}:${(dt.getMinutes() < 10 ? `0` : ``) + dt.getMinutes()}:${dt.getSeconds()}`;
+const date = new Date();
+const createdDate = `${date.getFullYear()}-${(date.getMonth() + 1)}-${date.getDate()} ${date.getHours()}:${(date.getMinutes() < 10 ? `0` : ``) + date.getMinutes()}:${date.getSeconds()}`;
 
 const generateOffers = (count) => (
   Array(count).fill({}).map(() => ({
