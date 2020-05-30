@@ -1,5 +1,9 @@
 'use strict';
 
+const {
+  logInfo,
+} = require(`../../utils`);
+
 module.exports = {
   name: `--help`,
   run() {
@@ -12,6 +16,6 @@ module.exports = {
         --version:            выводит номер версии
         --help:               печатает этот текст
         --generate <count>    формирует файл mocks.json`;
-    console.info(helpText);
+    logInfo(helpText, `grey`)
   }
 };
