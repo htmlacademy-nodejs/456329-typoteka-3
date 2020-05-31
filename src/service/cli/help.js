@@ -16,6 +16,6 @@ module.exports = {
         --version:            выводит номер версии
         --help:               печатает этот текст
         --generate <count>    формирует файл mocks.json`;
-    logInfo(helpText, `grey`)
+    logInfo(helpText, `grey`);
   }
 };
