@@ -15,8 +15,7 @@ module.exports = {
         Команды:
         --version:            выводит номер версии
         --help:               печатает этот текст
-        --generate <count>    формирует файл mocks.json
-        --server <port>       запускает сервер на указанном порту (по умолчанию 3000)`;
-    logInfo(helpText, `grey`)
+        --generate <count>    формирует файл mocks.json`;
+    logInfo(helpText, `grey`);
   }
 };
