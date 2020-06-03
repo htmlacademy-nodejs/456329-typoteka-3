@@ -34,9 +34,15 @@ const generateOffers = (count, titles, categories, sentences) => (
 const readContent = async (filePath) => {
   try {
     const content = await fs.readFile(filePath, `utf8`);
-    const contentTrim = content.toString().split(`\n`).map((line) => {
-      return line.trim();
-    }).filter(Boolean);
+    const contentTrim = content
+      .toString()
+      .split(`\n`)
+      .map((line) => {
+        return line.trim();
+      })
+      .filter((line) => {
+        return line ? true : false;
+      });
 
     return contentTrim;
   } catch (err) {

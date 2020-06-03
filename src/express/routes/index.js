@@ -6,8 +6,8 @@ const postRoutes = require(`./post-routes`);
 const actionRoutes = require(`./action-routes`);
 
 module.exports = {
-    categorieRoutes,
-    articleRoutes,
-    postRoutes,
-    actionRoutes,
-}
+  categorieRoutes,
+  articleRoutes,
+  postRoutes,
+  actionRoutes,
+};
