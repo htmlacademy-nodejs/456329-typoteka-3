@@ -1,6 +1,9 @@
 'use strict';
 
 const chalk = require(`chalk`);
+const {nanoid} = require(`nanoid`);
+
+const MAX_ID_LENGTH = 6;
 
 module.exports.getRandomInt = (min, max) => {
   min = Math.ceil(min);
@@ -15,6 +18,15 @@ module.exports.shuffle = (someArray) => {
   }
   return someArray;
 };
+
+module.exports.generateComments = (count, comments) => (
+  Array(count).fill({}).map(() => ({
+    id: nanoid(MAX_ID_LENGTH),
+    text: this.shuffle(comments)
+      .slice(0, this.getRandomInt(1, 3))
+      .join(` `),
+  }))
+);
 
 module.exports.logInfo = (logText, logColor) => console.log(chalk`{${logColor} ${logText}}`);
 

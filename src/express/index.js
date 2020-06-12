@@ -2,6 +2,8 @@
 
 const express = require(`express`);
 const path = require(`path`);
+const app = express();
+const {data} = require(`../api`);
 
 const {
   logInfo,
@@ -9,9 +11,6 @@ const {
 
 const PUBLIC_DIR = `public`;
 
-// Маршруты приложения мы опишем в отдельных файлах.
-// Для определения маршрутов мы воспользуемся Router().
-// Примеры маршрутов будут продемонстрированы ниже по тексту.
 const {
   categorieRoutes,
   articleRoutes,
@@ -19,10 +18,13 @@ const {
   actionRoutes,
 } = require(`./routes/index`);
 
-// Зафиксируем порт для сервера
+const API_PREFIX = `/api`;
 const DEFAULT_PORT = 8080;
 
-const app = express();
+app.use(express.json());
+
+// Используем REST api
+app.use(API_PREFIX, data);
 
 // Подключим созданные маршруты
 app.use(`/categories`, categorieRoutes);
