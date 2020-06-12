@@ -3,7 +3,7 @@
 const {Router} = require(`express`);
 const {getMockData} = require(`../service/lib/get-mock-data`);
 const {CategoryService, ArticleService, SearchService} = require(`./services`);
-const {categoryController, articleController, searchController} = require(`./contrlollers`);
+const {setCategoryController, setArticleController, setSearchController} = require(`./contrlollers`);
 
 const router = new Router();
 
@@ -15,14 +15,9 @@ const router = new Router();
     const searchService = new SearchService(articles);
     const articleService = new ArticleService(articles);
 
-    categoryController(router, categoryService);
-    searchController(router, searchService);
-    articleController(router, articleService);
-
-    router.use(`/categories`, categoryController);
-    router.use(`/search`, searchController);
-    router.use(`/articles`, articleController);
-
+    setCategoryController(router, categoryService);
+    setArticleController(router, articleService);
+    setSearchController(router, searchService);
 
   } catch (error) {
     console.error(error);
@@ -30,3 +25,4 @@ const router = new Router();
 })();
 
 exports.data = router;
+

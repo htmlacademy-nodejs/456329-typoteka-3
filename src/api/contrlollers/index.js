@@ -1,11 +1,11 @@
 'use strict';
 
-const categoryController = require(`./category/category-controller`);
-const articleController = require(`./article/article-controller`);
-const searchController = require(`./search/search-controller`);
+const setCategoryController = require(`./category/categoryController`);
+const setArticleController = require(`./article/articleController`);
+const setSearchController = require(`./search/searchController`);
 
 module.exports = {
-  categoryController,
-  articleController,
-  searchController
+  setCategoryController,
+  setArticleController,
+  setSearchController
 };

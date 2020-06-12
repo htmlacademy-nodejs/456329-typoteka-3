@@ -16,7 +16,6 @@ module.exports = (app, service) => {
   });
 
   route.get(`/:articleId`, existingArticle(service), (req, res) => {
-    console.log(req.params);
     const {articleId} = req.params;
     const article = service.findOne(articleId);
     res.status(HttpCode.OK)
