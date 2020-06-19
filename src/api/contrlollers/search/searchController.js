@@ -4,6 +4,10 @@ const {Router} = require(`express`);
 const {HttpCode} = require(`../../../constants`);
 const route = new Router();
 
+const {getLogger} = require(`../../../service/cli/logger`);
+
+const logger = getLogger();
+
 module.exports = (app, service) => {
   app.use(`/search`, route);
 
@@ -16,5 +20,6 @@ module.exports = (app, service) => {
 
     const searchedResult = service.searchResult(query);
     res.status(HttpCode.OK).json(searchedResult);
+    logger.debug(`GET api/search?query=${query} code ${res.statusCode}`);
   });
 };

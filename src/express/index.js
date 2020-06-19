@@ -4,6 +4,9 @@ const express = require(`express`);
 const path = require(`path`);
 const app = express();
 const {data} = require(`../api`);
+const {getLogger} = require(`../service/cli/logger`);
+
+const logger = getLogger();
 
 const {
   logInfo,
@@ -36,7 +39,7 @@ app.use((req, res) => {
       'statusCode': 404,
     }
   });
-  //console.error(`Wrong route`);
+  logger.error(`Wrong route`);
 });
 
 
