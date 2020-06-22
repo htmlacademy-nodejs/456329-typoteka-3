@@ -25,14 +25,15 @@ module.exports = (app, service) => {
     const article = service.findOne(articleId);
     res.status(HttpCode.OK).json(article);
     logger.debug(`GET /api/articles/:articleId status code ${res.statusCode}`);
-
   });
 
   route.get(`/:articleId/comments`, existingArticle(service), (req, res) => {
     const { articleId } = req.params;
     const articleById = service.findOne(articleId).comments;
     res.status(HttpCode.OK).json(articleById);
-    logger.debug(`GET /api/articles/:articleId/comments status code ${res.statusCode}`);
+    logger.debug(
+      `GET /api/articles/:articleId/comments status code ${res.statusCode}`
+    );
   });
 
   route.post(`/`, (req, res) => {
@@ -56,7 +57,9 @@ module.exports = (app, service) => {
     const comment = service.createComment(article, req.body);
 
     res.status(HttpCode.CREATED).json(comment);
-    logger.debug(`POST /api/articles/:articleId/comments status code ${res.statusCode}`);
+    logger.debug(
+      `POST /api/articles/:articleId/comments status code ${res.statusCode}`
+    );
   });
 
   route.put(`/:articleId`, existingArticle(service), (req, res) => {
@@ -64,14 +67,15 @@ module.exports = (app, service) => {
     const updateArticle = service.update(article.id, req.body);
     res.status(HttpCode.OK).json(updateArticle);
     logger.debug(`PUT /api/articles/:articleId status code ${res.statusCode}`);
-
   });
 
   route.delete(`/:articleId`, existingArticle(service), (req, res) => {
     const { article } = res.locals;
     const deletedarticle = service.drop(article.id);
     res.status(HttpCode.OK).json(deletedarticle);
-    logger.debug(`DELETE /api/articles/:articleId status code ${res.statusCode}`);
+    logger.debug(
+      `DELETE /api/articles/:articleId status code ${res.statusCode}`
+    );
   });
 
   route.delete(
@@ -83,7 +87,6 @@ module.exports = (app, service) => {
       const deleteComment = service.dropComment(article, commentId);
 
       return res.status(HttpCode.OK).json(deleteComment);
-      
     }
   );
 };

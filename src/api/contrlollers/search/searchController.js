@@ -1,19 +1,18 @@
-'use strict';
+"use strict";
 
-const {Router} = require(`express`);
-const {HttpCode} = require(`../../../constants`);
+const { Router } = require(`express`);
+const { HttpCode } = require(`../../../constants`);
 const route = new Router();
 
-const {getLogger} = require(`../../../service/cli/logger`);
+const { getLogger } = require(`../../../service/cli/logger`);
 
 const logger = getLogger();
 
 module.exports = (app, service) => {
   app.use(`/search`, route);
 
-
   route.get(``, (req, res) => {
-    const {query} = req.query;
+    const { query } = req.query;
     if (!query) {
       return res.status(HttpCode.BAD_REQUEST).send(`Invalid query`);
     }

@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const {nanoid} = require(`nanoid`);
+const { nanoid } = require(`nanoid`);
 const MAX_ID_LENGTH = 6;
 
 class ArticleService {
@@ -9,25 +9,29 @@ class ArticleService {
   }
 
   create(article) {
-    const newArticle = Object.assign({
-      id: nanoid(MAX_ID_LENGTH),
-      comments: []
-    }
-    , article);
+    const newArticle = Object.assign(
+      {
+        id: nanoid(MAX_ID_LENGTH),
+        comments: [],
+      },
+      article
+    );
 
     this._articles.push(newArticle);
     return newArticle;
   }
 
   createComment(article, comment) {
-    const newComment = Object.assign({
-      id: nanoid(MAX_ID_LENGTH)
-    }, comment);
+    const newComment = Object.assign(
+      {
+        id: nanoid(MAX_ID_LENGTH),
+      },
+      comment
+    );
 
     article.comments.push(newComment);
     return newComment;
   }
-
 
   drop(id) {
     const article = this._articles.find((item) => item.id === id);
@@ -60,12 +64,10 @@ class ArticleService {
   }
 
   update(id, article) {
-    const oldArticle = this._articles
-      .find((item) => item.id === id);
+    const oldArticle = this._articles.find((item) => item.id === id);
 
     return Object.assign(oldArticle, article);
   }
-
 }
 
 module.exports = ArticleService;

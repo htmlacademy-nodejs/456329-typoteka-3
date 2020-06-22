@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 const logger = require(`pino`)({
   name: `pino-and-express`,
-  level: process.env.LOG_LEVEL || `info`
+  level: process.env.LOG_LEVEL || `info`,
 });
 
 module.exports = {
@@ -12,5 +12,5 @@ module.exports = {
   // специфичные настройки для нового экземпляра класса.
   getLogger(options = {}) {
     return logger.child(options);
-  }
+  },
 };

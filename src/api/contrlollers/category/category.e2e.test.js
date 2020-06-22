@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 const request = require(`supertest`);
 const server = require(`../../../express`);
 
-const {HttpCode} = require(`../../../constants`);
-const {getMockData} = require(`../../../service/lib/get-mock-data`);
+const { HttpCode } = require(`../../../constants`);
+const { getMockData } = require(`../../../service/lib/get-mock-data`);
 
 describe(`Тестирование API по маршруту categories`, () => {
   beforeAll(async () => {
@@ -15,5 +15,4 @@ describe(`Тестирование API по маршруту categories`, () => 
     const res = await request(server).get(`/api/categories`);
     expect(res.statusCode).toBe(HttpCode.OK);
   });
-
 });

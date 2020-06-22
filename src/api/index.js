@@ -1,9 +1,17 @@
-'use strict';
+"use strict";
 
-const {Router} = require(`express`);
-const {getMockData} = require(`../service/lib/get-mock-data`);
-const {CategoryService, ArticleService, SearchService} = require(`./services`);
-const {setCategoryController, setArticleController, setSearchController} = require(`./contrlollers`);
+const { Router } = require(`express`);
+const { getMockData } = require(`../service/lib/get-mock-data`);
+const {
+  CategoryService,
+  ArticleService,
+  SearchService,
+} = require(`./services`);
+const {
+  setCategoryController,
+  setArticleController,
+  setSearchController,
+} = require(`./contrlollers`);
 
 const router = new Router();
 
@@ -18,11 +26,9 @@ const router = new Router();
     setCategoryController(router, categoryService);
     setArticleController(router, articleService);
     setSearchController(router, searchService);
-
   } catch (error) {
     console.error(error);
   }
 })();
 
 exports.data = router;
-
